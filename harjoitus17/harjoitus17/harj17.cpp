@@ -37,7 +37,7 @@ void printUser(userInfo);
 userInfo getUser();
 userInfo student1Info();
 userInfo student2Info();
-int compareUserDistance(const void*, const void*);
+int compareUserDistances(const void*, const void*);
 
 
 int main()
@@ -49,7 +49,7 @@ int main()
 	student1 = student1Info();
 	student2 = student2Info();
 	userInfo users[] = { user, student1, student2 };
-	qsort(users, 3, sizeof(userInfo), compareUserDistance);
+	qsort(users, 3, sizeof(userInfo), compareUserDistances);
 	printUser(users[0]);
 	printUser(users[1]);
 	printUser(users[2]);
@@ -128,6 +128,7 @@ int getUserInputInteger()
 	int userInt;
 	cin >> userInt;
 	return userInt;
+
 }
 float getUserInputFloat()
 {
@@ -136,7 +137,7 @@ float getUserInputFloat()
 	return userFloat;
 }
 
-int compareUserDistance(const void * a, const void * b)
+int compareUserDistances(const void * a, const void * b)
 {
 	if (((const userInfo*)a)->distance <  ((const userInfo*)b)->distance) return -1;
 	if (((const userInfo*)a)->distance ==  ((const userInfo*)b)->distance) return 0;
